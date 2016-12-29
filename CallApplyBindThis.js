@@ -29,18 +29,18 @@ var Cat = (function () {
 })();
 
 //CALL
-Animal1.produceSound.call(Cat);
-Animal1.produceSoundAgain.call(Cat, "meow");
+Animal1.produceSound.call(Cat);//O/P would be Meoooooooowwwwww as call will execute produceSound in "Cat" context where sound=Meoooooooowwwwww
+Animal1.produceSoundAgain.call(Cat, "meow"); //O/P would be meow as call will execute produceSound in "Cat" context and pass argument as meow
 
 //APPLY
-Animal1.produceSound.apply(Cat);
-Animal1.produceSoundAgain.apply(Cat, ["meow from apply"]);
+Animal1.produceSound.apply(Cat);//O/P would be Meoooooooowwwwww as call will execute produceSound in "Cat" context where sound=Meoooooooowwwwww
+Animal1.produceSoundAgain.apply(Cat, ["meow from apply"]);//O/P would be "meow from apply" as call will execute produceSound in "Cat" context and pass argument as "meow from apply"
 
 //BIND
 var makeSound = Animal1.produceSoundAgain.bind(Cat);
-makeSound("meow meow");
+makeSound("meow meow");//O/P would be "meow meow" as call will execute produceSound in "Cat" context and pass argument as "meow meow"
 var makeSound1 = Animal1.produceSound.bind(Cat);
-makeSound1();
+makeSound1("Hello");//O/P would be Meoooooooowwwwww as call will execute produceSound in "Cat" context where sound=Meoooooooowwwwww
 
 //*****************************************Another Example**********************************************************************
 var person = {
